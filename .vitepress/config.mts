@@ -1,0 +1,276 @@
+import { defineConfig } from 'vitepress'
+
+const courseModules = [
+  { text: 'Course Home', link: '/course/' },
+  { text: 'Module 0: Welcome', link: '/course/module-0/welcome' },
+  {
+    text: 'Module 1: Foundations',
+    collapsed: true,
+    items: [
+      { text: 'Overview', link: '/course/module-1/' },
+      { text: 'What is Faceless Video?', link: '/course/module-1/lesson-1-what-is-faceless-video' },
+      { text: 'Why It Works', link: '/course/module-1/lesson-2-why-it-works' },
+      { text: 'Economics', link: '/course/module-1/lesson-3-economics' },
+      { text: 'Choosing Your Niche', link: '/course/module-1/lesson-4-choosing-niche' },
+      { text: 'Market Research', link: '/course/module-1/lesson-5-market-research' },
+      { text: 'Channel Setup', link: '/course/module-1/lesson-6-channel-setup' },
+    ],
+  },
+  {
+    text: 'Module 2: Syllaby.io',
+    collapsed: true,
+    items: [
+      { text: 'Overview', link: '/course/module-2/' },
+      { text: 'Dashboard', link: '/course/module-2/lesson-1-dashboard' },
+      { text: 'Faceless Generator', link: '/course/module-2/lesson-2-faceless-generator' },
+      { text: 'AI Scripts', link: '/course/module-2/lesson-3-ai-scripts' },
+      { text: 'Editing', link: '/course/module-2/lesson-4-editing' },
+      { text: 'Character Consistency', link: '/course/module-2/lesson-5-character-consistency' },
+      { text: 'Bulk Scheduler', link: '/course/module-2/lesson-6-bulk-scheduler' },
+      { text: 'Idea Discovery', link: '/course/module-2/lesson-7-idea-discovery' },
+      { text: 'Advanced Features', link: '/course/module-2/lesson-8-advanced-features' },
+    ],
+  },
+  {
+    text: 'Module 3: Content Creation',
+    collapsed: true,
+    items: [
+      { text: 'Overview', link: '/course/module-3/' },
+      { text: '5-Minute System', link: '/course/module-3/lesson-1-5-minute-system' },
+      { text: 'Script Writing', link: '/course/module-3/lesson-2-script-writing' },
+      { text: 'Thumbnails', link: '/course/module-3/lesson-3-thumbnails' },
+      { text: 'Titles', link: '/course/module-3/lesson-4-titles' },
+      { text: 'Repurposing', link: '/course/module-3/lesson-5-repurposing' },
+      { text: 'Content Calendar', link: '/course/module-3/lesson-6-content-calendar' },
+      { text: 'Quality vs Quantity', link: '/course/module-3/lesson-7-quality-quantity' },
+    ],
+  },
+  {
+    text: 'Module 4: Monetization Fast',
+    collapsed: true,
+    items: [
+      { text: 'Overview', link: '/course/module-4/' },
+      { text: 'YouTube Requirements', link: '/course/module-4/lesson-1-youtube-requirements' },
+      { text: 'Monetization Strategy', link: '/course/module-4/lesson-2-monetization-strategy' },
+      { text: 'Watch Time', link: '/course/module-4/lesson-3-watch-time' },
+      { text: 'Shorts vs Long', link: '/course/module-4/lesson-4-shorts-vs-long' },
+      { text: 'Multi-Channel', link: '/course/module-4/lesson-5-multi-channel' },
+      { text: 'Platform Requirements', link: '/course/module-4/lesson-6-platform-requirements' },
+      { text: 'Getting Approved', link: '/course/module-4/lesson-7-getting-approved' },
+    ],
+  },
+  {
+    text: 'Module 5: Revenue Streams',
+    collapsed: true,
+    items: [
+      { text: 'Overview', link: '/course/module-5/' },
+      { text: 'Revenue Stack', link: '/course/module-5/lesson-1-revenue-stack' },
+      { text: 'AdSense', link: '/course/module-5/lesson-2-adsense' },
+      { text: 'Affiliate', link: '/course/module-5/lesson-3-affiliate' },
+      { text: 'YouTube Extras', link: '/course/module-5/lesson-4-youtube-extras' },
+      { text: 'Brand Deals', link: '/course/module-5/lesson-5-brand-deals' },
+      { text: 'Multi-Platform', link: '/course/module-5/lesson-6-multi-platform' },
+      { text: 'Scaling', link: '/course/module-5/lesson-7-scaling' },
+    ],
+  },
+  {
+    text: 'Module 6: Growth',
+    collapsed: true,
+    items: [
+      { text: 'Overview', link: '/course/module-6/' },
+      { text: 'Consistency', link: '/course/module-6/lesson-1-consistency' },
+      { text: 'Multi-Platform', link: '/course/module-6/lesson-2-multi-platform' },
+      { text: 'Repurposing', link: '/course/module-6/lesson-3-repurposing' },
+      { text: 'Community', link: '/course/module-6/lesson-4-community' },
+      { text: 'SEO', link: '/course/module-6/lesson-5-seo' },
+      { text: 'A/B Testing', link: '/course/module-6/lesson-6-ab-testing' },
+      { text: 'Analytics', link: '/course/module-6/lesson-7-analytics' },
+    ],
+  },
+  {
+    text: 'Module 7: Scaling',
+    collapsed: true,
+    items: [
+      { text: 'Overview', link: '/course/module-7/' },
+      { text: 'Multi-Channel', link: '/course/module-7/lesson-1-multi-channel' },
+      { text: 'Niche Expansion', link: '/course/module-7/lesson-2-niche-expansion' },
+      { text: 'Team Building', link: '/course/module-7/lesson-3-team-building' },
+      { text: 'Automation', link: '/course/module-7/lesson-4-automation' },
+      { text: 'Scaling', link: '/course/module-7/lesson-5-scaling' },
+      { text: 'Empire', link: '/course/module-7/lesson-6-empire' },
+    ],
+  },
+  {
+    text: 'Module 8: Platforms',
+    collapsed: true,
+    items: [
+      { text: 'Overview', link: '/course/module-8/' },
+      { text: 'YouTube', link: '/course/module-8/lesson-1-youtube' },
+      { text: 'TikTok', link: '/course/module-8/lesson-2-tiktok' },
+      { text: 'Instagram', link: '/course/module-8/lesson-3-instagram' },
+      { text: 'Facebook', link: '/course/module-8/lesson-4-facebook' },
+      { text: 'Cross-Platform', link: '/course/module-8/lesson-5-cross-platform' },
+      { text: 'Adaptation', link: '/course/module-8/lesson-6-adaptation' },
+    ],
+  },
+  {
+    text: 'Module 9: Troubleshooting',
+    collapsed: true,
+    items: [
+      { text: 'Overview', link: '/course/module-9/' },
+      { text: 'Common Issues', link: '/course/module-9/lesson-1-common-issues' },
+      { text: 'Credits', link: '/course/module-9/lesson-2-credits' },
+      { text: 'Performance', link: '/course/module-9/lesson-3-performance' },
+      { text: 'Quality', link: '/course/module-9/lesson-4-quality' },
+      { text: 'Updates', link: '/course/module-9/lesson-5-updates' },
+      { text: 'Advanced Tips', link: '/course/module-9/lesson-6-advanced-tips' },
+    ],
+  },
+  {
+    text: 'Module 10: Business',
+    collapsed: true,
+    items: [
+      { text: 'Overview', link: '/course/module-10/' },
+      { text: 'Hobby to Business', link: '/course/module-10/lesson-1-hobby-to-business' },
+      { text: 'Legal & Tax', link: '/course/module-10/lesson-2-legal-tax' },
+      { text: 'Brand Building', link: '/course/module-10/lesson-3-brand-building' },
+      { text: 'Long Term', link: '/course/module-10/lesson-4-long-term' },
+      { text: 'Exit Strategies', link: '/course/module-10/lesson-5-exit-strategies' },
+      { text: 'Next Steps', link: '/course/module-10/lesson-6-next-steps' },
+    ],
+  },
+  { text: 'Video Ideas', link: '/course/bonuses/video-ideas' },
+]
+
+const guidesSidebar = [
+  {
+    text: 'Getting Started',
+    collapsed: false,
+    items: [
+      { text: 'Introduction', link: '/guides/getting-started/introduction' },
+      { text: 'Account Setup', link: '/guides/getting-started/account-setup' },
+      { text: 'Dashboard Overview', link: '/guides/getting-started/dashboard-overview' },
+      { text: 'Your First Video', link: '/guides/getting-started/your-first-video' },
+      { text: 'Connecting Accounts', link: '/guides/getting-started/connecting-accounts' },
+    ],
+  },
+  {
+    text: 'Features',
+    collapsed: true,
+    items: [
+      { text: 'Faceless Video Generator', link: '/guides/features/faceless-video-generator' },
+      { text: 'Video Editing', link: '/guides/features/video-editing' },
+      { text: 'Character Consistency', link: '/guides/features/character-consistency' },
+      { text: 'Bulk Scheduler', link: '/guides/features/bulk-scheduler' },
+      { text: 'Idea Discovery', link: '/guides/features/idea-discovery' },
+      { text: 'Thumbnail Generator', link: '/guides/features/thumbnail-generator' },
+      { text: 'Real Clone', link: '/guides/features/real-clone' },
+      { text: 'URL to Video', link: '/guides/features/url-to-video' },
+      { text: 'Audio to Video', link: '/guides/features/audio-to-video' },
+      { text: 'Text to Scene', link: '/guides/features/text-to-scene' },
+    ],
+  },
+  {
+    text: 'Monetization',
+    collapsed: true,
+    items: [
+      { text: 'Complete Guide', link: '/guides/monetization/complete-guide' },
+      { text: 'YouTube Monetization', link: '/guides/monetization/youtube-monetization' },
+      { text: 'Platform Requirements', link: '/guides/monetization/platform-requirements' },
+      { text: 'Revenue Streams', link: '/guides/monetization/revenue-streams' },
+      { text: 'Getting Monetized Fast', link: '/guides/monetization/getting-monetized-fast' },
+      { text: 'Affiliate Marketing', link: '/guides/monetization/affiliate-marketing' },
+    ],
+  },
+  {
+    text: 'Strategies',
+    collapsed: true,
+    items: [
+      { text: 'Success Strategies', link: '/guides/strategies/success-strategies' },
+      { text: 'Content Strategies', link: '/guides/strategies/content-strategies' },
+      { text: 'Growth Strategies', link: '/guides/strategies/growth-strategies' },
+      { text: 'Multi-Platform', link: '/guides/strategies/multi-platform' },
+      { text: 'Community Building', link: '/guides/strategies/community-building' },
+    ],
+  },
+  {
+    text: 'Niches',
+    collapsed: true,
+    items: [
+      { text: 'Top Paying Niches', link: '/guides/niches/top-paying-niches' },
+      { text: 'Niche Selection', link: '/guides/niches/niche-selection' },
+      { text: 'Finance & Investing', link: '/guides/niches/finance-investing' },
+      { text: 'Health & Wellness', link: '/guides/niches/health-wellness' },
+      { text: 'Technology', link: '/guides/niches/technology' },
+      { text: 'Business', link: '/guides/niches/business' },
+      { text: 'Multi-Niche Strategy', link: '/guides/niches/multi-niche-strategy' },
+    ],
+  },
+  {
+    text: 'Platforms',
+    collapsed: true,
+    items: [
+      { text: 'YouTube Guide', link: '/guides/platforms/youtube-guide' },
+      { text: 'TikTok Guide', link: '/guides/platforms/tiktok-guide' },
+      { text: 'Instagram Guide', link: '/guides/platforms/instagram-guide' },
+      { text: 'Facebook Guide', link: '/guides/platforms/facebook-guide' },
+      { text: 'Cross-Platform', link: '/guides/platforms/cross-platform' },
+    ],
+  },
+  {
+    text: 'Workflows',
+    collapsed: true,
+    items: [
+      { text: 'Daily Workflow', link: '/guides/workflows/daily-workflow' },
+      { text: 'Monthly Workflow', link: '/guides/workflows/monthly-workflow' },
+      { text: 'Content Repurposing', link: '/guides/workflows/content-repurposing' },
+      { text: 'Affiliate Workflow', link: '/guides/workflows/affiliate-workflow' },
+      { text: 'U-Log Workflow', link: '/guides/workflows/ulog-workflow' },
+      { text: 'Multi-Channel', link: '/guides/workflows/multi-channel' },
+    ],
+  },
+  {
+    text: 'Resources',
+    collapsed: true,
+    items: [
+      { text: 'FAQ', link: '/guides/resources/faq' },
+    ],
+  },
+]
+
+export default defineConfig({
+  title: 'Faceless Video Content',
+  description:
+    'Learn how to automate faceless short-form and long-form video content for YouTube, TikTok, Facebook, and Instagram.',
+  base: '/automate-faceless-content/',
+  cleanUrls: true,
+  lastUpdated: true,
+  ignoreDeadLinks: true,
+  themeConfig: {
+    nav: [
+      { text: 'Home', link: '/' },
+      { text: 'Course', link: '/course/' },
+      { text: 'Guides', link: '/guides/getting-started/introduction' },
+      { text: 'Video Ideas', link: '/video-ideas' },
+      { text: 'Tools', link: '/best-automating-tools' },
+      {
+        text: 'Syllaby.io',
+        link: 'https://syllaby.io/?via=chris56',
+      },
+    ],
+    sidebar: {
+      '/course/': courseModules,
+      '/guides/': guidesSidebar,
+    },
+    socialLinks: [
+      {
+        icon: 'github',
+        link: 'https://github.com/ReputationRx/automate-faceless-content',
+      },
+    ],
+    footer: {
+      message: 'Built for faceless video creators.',
+      copyright: 'Copyright © 2026 ReputationRx',
+    },
+  },
+})
